@@ -1,7 +1,0 @@
-def change
-  create_table :drinks do |t|
-    t.string :name
-    t.text :description
-    t.timestamps
-  end
-end
