@@ -138,4 +138,16 @@ class ApplicationController < Sinatra::Base
     drinks = Drink.where("name LIKE ?", "%#{search_term}%")
     drinks.to_json
   end
+
+  # GET /brands
+  get "/brands" do
+    brands = Drink.select(:brand).distinct
+    brands.to_json
+  end
+
+  # GET /brands/:brand
+  get "/brands/:brand" do
+    drinks = Drink.where(brand: params[:brand])
+    drinks.to_json
+  end
 end
